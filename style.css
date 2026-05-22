@@ -235,6 +235,78 @@ h1 {
 }
 
 
+
+.focus-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.focus-card {
+  width: min(760px, 100%);
+  padding: 26px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: start;
+  border: 1px solid rgba(116, 232, 255, 0.16);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.045), transparent),
+    rgba(8, 18, 32, 0.54);
+  box-shadow: 0 22px 72px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(18px);
+  transition: border-color 0.26s ease, box-shadow 0.26s ease, transform 0.26s ease, background 0.26s ease;
+}
+
+.focus-card:hover {
+  border-color: rgba(116, 232, 255, 0.46);
+  background:
+    linear-gradient(135deg, rgba(116, 232, 255, 0.065), transparent),
+    rgba(10, 26, 44, 0.68);
+  box-shadow:
+    0 26px 84px rgba(0, 0, 0, 0.3),
+    0 0 38px rgba(0, 216, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.focus-card.align-right {
+  justify-self: end;
+}
+
+.focus-index {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(116, 232, 255, 0.3);
+  border-radius: 50%;
+  color: #9ff3ff;
+  background: rgba(0, 180, 220, 0.1);
+  box-shadow: 0 0 22px rgba(0, 216, 255, 0.14);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.focus-card h3 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.focus-card p {
+  margin: 0;
+  color: #c8dce8;
+  line-height: 1.7;
+}
+
+.focus-mantra {
+  margin: 28px 0 0;
+  color: #eaffff;
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 800;
+  text-shadow: 0 0 28px rgba(0, 216, 255, 0.22);
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -392,39 +464,108 @@ h1 {
   gap: 14px;
 }
 
-.workflow-grid {
+.workflow-timeline {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 14px;
 }
 
-.workflow-card {
-  min-height: 150px;
+.workflow-timeline::before {
+  position: absolute;
+  top: 34px;
+  left: 4%;
+  right: 4%;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(116, 232, 255, 0.34), transparent);
+}
+
+.workflow-step {
+  position: relative;
+  min-height: 190px;
   padding: 22px;
   border: 1px solid rgba(116, 232, 255, 0.16);
   border-radius: 8px;
-  background: rgba(8, 18, 32, 0.5);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent),
+    rgba(8, 18, 32, 0.52);
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
   backdrop-filter: blur(16px);
-  transition: border-color 0.26s ease, box-shadow 0.26s ease, transform 0.26s ease;
+  transition: border-color 0.26s ease, box-shadow 0.26s ease, transform 0.26s ease, background 0.26s ease;
 }
 
-.workflow-card:hover {
-  border-color: rgba(116, 232, 255, 0.42);
-  box-shadow: 0 0 34px rgba(0, 216, 255, 0.2);
-  transform: translateY(-5px);
+.workflow-step:hover {
+  border-color: rgba(116, 232, 255, 0.48);
+  background:
+    linear-gradient(180deg, rgba(116, 232, 255, 0.06), transparent),
+    rgba(10, 26, 44, 0.68);
+  box-shadow:
+    0 24px 72px rgba(0, 0, 0, 0.3),
+    0 0 34px rgba(0, 216, 255, 0.22);
+  transform: translateY(-6px);
 }
 
-.workflow-card h3 {
+.step-number {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 26px;
+  border: 1px solid rgba(116, 232, 255, 0.36);
+  border-radius: 50%;
+  color: #9ff3ff;
+  background: rgba(0, 180, 220, 0.12);
+  box-shadow: 0 0 20px rgba(0, 216, 255, 0.16);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.workflow-step h3 {
   margin: 0 0 10px;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 19px;
 }
 
-.workflow-card p {
+.workflow-step p {
   margin: 0;
   color: #c8dce8;
-  line-height: 1.6;
+  line-height: 1.65;
+}
+
+.philosophy-panel {
+  margin-top: 22px;
+  padding: 26px;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) 1.2fr;
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(116, 232, 255, 0.16);
+  border-radius: 8px;
+  background: rgba(8, 18, 32, 0.46);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(16px);
+}
+
+.philosophy-panel h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.philosophy-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.philosophy-list span {
+  padding: 9px 12px;
+  border: 1px solid rgba(116, 232, 255, 0.16);
+  border-radius: 999px;
+  color: #bfefff;
+  background: rgba(255, 255, 255, 0.035);
+  font-size: 14px;
 }
 
 .action-button {
@@ -531,11 +672,155 @@ h1 {
   }
 
   .card-grid,
-  .project-grid {
+  
+.focus-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.focus-card {
+  width: min(760px, 100%);
+  padding: 26px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: start;
+  border: 1px solid rgba(116, 232, 255, 0.16);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.045), transparent),
+    rgba(8, 18, 32, 0.54);
+  box-shadow: 0 22px 72px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(18px);
+  transition: border-color 0.26s ease, box-shadow 0.26s ease, transform 0.26s ease, background 0.26s ease;
+}
+
+.focus-card:hover {
+  border-color: rgba(116, 232, 255, 0.46);
+  background:
+    linear-gradient(135deg, rgba(116, 232, 255, 0.065), transparent),
+    rgba(10, 26, 44, 0.68);
+  box-shadow:
+    0 26px 84px rgba(0, 0, 0, 0.3),
+    0 0 38px rgba(0, 216, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.focus-card.align-right {
+  justify-self: end;
+}
+
+.focus-index {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(116, 232, 255, 0.3);
+  border-radius: 50%;
+  color: #9ff3ff;
+  background: rgba(0, 180, 220, 0.1);
+  box-shadow: 0 0 22px rgba(0, 216, 255, 0.14);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.focus-card h3 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.focus-card p {
+  margin: 0;
+  color: #c8dce8;
+  line-height: 1.7;
+}
+
+.focus-mantra {
+  margin: 28px 0 0;
+  color: #eaffff;
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 800;
+  text-shadow: 0 0 28px rgba(0, 216, 255, 0.22);
+}
+
+.project-grid {
     gap: 14px;
   }
 
-  .project-grid {
+  
+.focus-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.focus-card {
+  width: min(760px, 100%);
+  padding: 26px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: start;
+  border: 1px solid rgba(116, 232, 255, 0.16);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.045), transparent),
+    rgba(8, 18, 32, 0.54);
+  box-shadow: 0 22px 72px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(18px);
+  transition: border-color 0.26s ease, box-shadow 0.26s ease, transform 0.26s ease, background 0.26s ease;
+}
+
+.focus-card:hover {
+  border-color: rgba(116, 232, 255, 0.46);
+  background:
+    linear-gradient(135deg, rgba(116, 232, 255, 0.065), transparent),
+    rgba(10, 26, 44, 0.68);
+  box-shadow:
+    0 26px 84px rgba(0, 0, 0, 0.3),
+    0 0 38px rgba(0, 216, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.focus-card.align-right {
+  justify-self: end;
+}
+
+.focus-index {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(116, 232, 255, 0.3);
+  border-radius: 50%;
+  color: #9ff3ff;
+  background: rgba(0, 180, 220, 0.1);
+  box-shadow: 0 0 22px rgba(0, 216, 255, 0.14);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.focus-card h3 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.focus-card p {
+  margin: 0;
+  color: #c8dce8;
+  line-height: 1.7;
+}
+
+.focus-mantra {
+  margin: 28px 0 0;
+  color: #eaffff;
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 800;
+  text-shadow: 0 0 28px rgba(0, 216, 255, 0.22);
+}
+
+.project-grid {
     grid-template-columns: 1fr;
   }
 
@@ -548,9 +833,26 @@ h1 {
     flex-direction: column;
   }
 
-  .workflow-grid {
+  .workflow-timeline {
     grid-template-columns: 1fr;
     gap: 14px;
+  }
+
+  .workflow-timeline::before {
+    display: none;
+  }
+
+  .workflow-step {
+    min-height: 0;
+  }
+
+  .step-number {
+    margin-bottom: 18px;
+  }
+
+  .philosophy-panel {
+    grid-template-columns: 1fr;
+    padding: 22px;
   }
 
   .card {
